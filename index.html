@@ -1,27 +1,70 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labdr.net - Life Itself is a Laboratory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Netlify Test&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Testing Netlify&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;If you see this page rendered correctly, the problem is with the original index.html file.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;If you *still* see code, the problem is with the Netlify configuration or service.&lt;/p&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<body class="antialiased">
+
+    <div id="app" class="page-container">
+        <header class="bg-gray-900 shadow-md sticky top-0 z-40">
+            <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+                <a href="#home" data-page="home" class="text-2xl font-bold text-teal-400 motto-font">Labdr.net</a>
+                <div class="hidden md:flex space-x-1">
+                    <a href="#home" class="nav-link" data-page="home">Home</a>
+                    <a href="#about_us" class="nav-link" data-page="about_us">About Us</a>
+                    <a href="#laboratory" class="nav-link" data-page="laboratory">Laboratory</a>
+                    <a href="#nbc" class="nav-link" data-page="nbc">NBC</a>
+                    <a href="#partners" class="nav-link" data-page="partners">Partners</a>
+                    <a href="#blogs" class="nav-link" data-page="blogs">Blogs</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-teal-400 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </nav>
+            <div id="mobile-menu" class="md:hidden hidden bg-gray-800">
+                <a href="#home" class="block nav-link text-center" data-page="home">Home</a>
+                <a href="#about_us" class="block nav-link text-center" data-page="about_us">About Us</a>
+                <a href="#laboratory" class="block nav-link text-center" data-page="laboratory">Laboratory</a>
+                <a href="#nbc" class="block nav-link text-center" data-page="nbc">NBC</a>
+                <a href="#partners" class="block nav-link text-center" data-page="partners">Partners</a>
+                <a href="#blogs" class="block nav-link text-center" data-page="blogs">Blogs</a>
+            </div>
+        </header>
+
+        <main id="main-content" class="content-wrap">
+            </main>
+
+        <footer class="footer">
+            <div class="container mx-auto px-6 text-center">
+                <p class="motto-font text-lg text-teal-400 mb-2">"Life Itself is a Laboratory"</p>
+                <p>&copy; <span id="currentYear"></span> Labdr.net. All rights reserved.</p>
+                <p class="text-sm mt-2">A journey into the depths of biochemistry.</p>
+            </div>
+        </footer>
+
+        <div id="genericModal" class="modal">
+            <div class="modal-content">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modalTitle" class="text-xl md:text-2xl font-semibold">Modal Title</h3>
+                    <button id="modalCloseButton" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                </div>
+                <div id="modalMessage" class="mb-6 text-sm md:text-base leading-relaxed">This is a modal message.</div>
+                <div id="modalLoader" class="hidden my-4">
+                    <div class="loader"></div>
+                    <p class="text-center text-sm text-gray-600 mt-2">✨ Fetching information...</p>
+                </div>
+                <button id="modalActionButton" class="btn btn-secondary w-full mt-2">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
