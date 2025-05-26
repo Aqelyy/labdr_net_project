@@ -3,113 +3,588 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Labdr.net - Life Itself is a Laboratory</title>
+    <title>Labdr.net - Hayatın Kendisi Bir Laboratuvar</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-<style>
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: #F0F2F5;
-        color: #1A202C;
-    }
-    .motto-font {
-        font-family: 'Montserrat', sans-serif;
-    }
-    .page-container {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-    .content-wrap {
-        flex-grow: 1;
-    }
-    .loader {
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid #4F46E5;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        animation: spin 1s linear infinite;
-        margin: 0 auto;
-    }
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    /* Keep modal styles for structure */
-    .modal { @apply fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 invisible; }
-    .modal.active { @apply opacity-100 visible; }
-    .modal-content { @apply bg-white p-6 md:p-8 rounded-lg shadow-xl w-full max-w-lg m-4 text-gray-800 max-h-[80vh] overflow-y-auto; }
-
-    /* Add nav-link styles directly using Tailwind's approach */
-    .nav-link { 
-        @apply px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md; 
-    }
-    .nav-link-active { 
-        @apply bg-teal-600 text-white hover:text-white; 
-    }
-</style>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1A202C;
+        }
+        .motto-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .mono-font {
+            font-family: 'Roboto Mono', monospace;
+        }
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content-wrap {
+            flex-grow: 1;
+        }
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .molecular-animation {
+            animation: molecular-float 6s ease-in-out infinite;
+        }
+        @keyframes molecular-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        .dna-helix {
+            background: linear-gradient(45deg, #00d4ff, #090979);
+            background-size: 400% 400%;
+            animation: dna-gradient 4s ease infinite;
+        }
+        @keyframes dna-gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .biochem-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .biochem-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .section-bg {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+        }
+        .nav-link { 
+            @apply px-4 py-2 text-sm font-medium text-white hover:text-cyan-300 transition-all duration-300 rounded-lg;
+            border: 1px solid transparent;
+        }
+        .nav-link:hover {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .nav-link-active { 
+            @apply bg-cyan-500 text-white border-cyan-400;
+        }
+        .pulse-animation {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
 </head>
 <body class="antialiased">
-
     <div id="app" class="page-container">
-        <header class="bg-gray-900 shadow-md sticky top-0 z-40">
-            <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-                <a href="#home" data-page="home" class="text-2xl font-bold text-teal-400 motto-font">Labdr.net</a>
+        <!-- Header -->
+        <header class="glass-morphism sticky top-0 z-50 border-b border-white/20">
+            <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 dna-helix rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                    <a href="#home" data-page="home" class="text-2xl font-bold text-white motto-font">Labdr.net</a>
+                </div>
                 
-                <div class="hidden md:flex space-x-1">
-                    <a href="#home" class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md" data-page="home">Home</a>
-                    <a href="#about_us" class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md" data-page="about_us">About Us</a>
-                    <a href="#laboratory" class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md" data-page="laboratory">Laboratory</a>
-                    <a href="#nbc" class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md" data-page="nbc">NBC</a>
-                    <a href="#partners" class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md" data-page="partners">Partners</a>
-                    <a href="#blogs" class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md" data-page="blogs">Blogs</a>
+                <div class="hidden md:flex space-x-2">
+                    <a href="#home" class="nav-link nav-link-active" data-page="home">Ana Sayfa</a>
+                    <a href="#about" class="nav-link" data-page="about">Hakkımızda</a>
+                    <a href="#laboratory" class="nav-link" data-page="laboratory">Laboratuvar</a>
+                    <a href="#research" class="nav-link" data-page="research">Araştırma</a>
+                    <a href="#services" class="nav-link" data-page="services">Hizmetler</a>
+                    <a href="#blog" class="nav-link" data-page="blog">Blog</a>
                 </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-300 hover:text-teal-400 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                    </button>
-                </div>
+                
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
             </nav>
-            
-            <div id="mobile-menu" class="md:hidden hidden bg-gray-800">
-                <a href="#home" class="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md text-center" data-page="home">Home</a>
-                <a href="#about_us" class="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md text-center" data-page="about_us">About Us</a>
-                <a href="#laboratory" class="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md text-center" data-page="laboratory">Laboratory</a>
-                <a href="#nbc" class="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md text-center" data-page="nbc">NBC</a>
-                <a href="#partners" class="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md text-center" data-page="partners">Partners</a>
-                <a href="#blogs" class="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-teal-400 transition-colors duration-300 rounded-md text-center" data-page="blogs">Blogs</a>
-            </div>
-            </header>
+        </header>
 
+        <!-- Main Content -->
         <main id="main-content" class="content-wrap">
-            </main>
+            <!-- Hero Section -->
+            <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20"></div>
+                
+                <!-- Floating Molecules -->
+                <div class="absolute top-20 left-10 molecular-animation">
+                    <div class="w-16 h-16 bg-cyan-400/30 rounded-full"></div>
+                </div>
+                <div class="absolute top-40 right-20 molecular-animation" style="animation-delay: -2s;">
+                    <div class="w-12 h-12 bg-purple-400/30 rounded-full"></div>
+                </div>
+                <div class="absolute bottom-40 left-1/4 molecular-animation" style="animation-delay: -4s;">
+                    <div class="w-20 h-20 bg-pink-400/30 rounded-full"></div>
+                </div>
+                
+                <div class="container mx-auto px-6 text-center relative z-10">
+                    <div class="max-w-4xl mx-auto">
+                        <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 motto-font">
+                            <span class="dna-helix bg-clip-text text-transparent">Labdr</span><span class="text-white">.net</span>
+                        </h1>
+                        
+                        <div class="mb-8">
+                            <p class="text-2xl md:text-3xl text-cyan-300 mb-2 motto-font font-semibold">
+                                "Hayatın Kendisi Bir Laboratuvar"
+                            </p>
+                            <p class="text-lg md:text-xl text-white/80 italic">
+                                "Life Itself is a Laboratory"
+                            </p>
+                        </div>
+                        
+                        <p class="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed">
+                            Biyokimya alanında öncü araştırmalar ve analitik çözümlerle 
+                            yaşamın moleküler dünyasını keşfediyoruz
+                        </p>
+                        
+                        <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                            <button class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-semibold text-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-xl">
+                                Laboratuvarımızı Keşfedin
+                            </button>
+                            <button class="px-8 py-4 border-2 border-white/30 text-white rounded-full font-semibold text-lg hover:bg-white/10 transition-all duration-300">
+                                Araştırmalarımız
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <footer class="footer">
-            <div class="container mx-auto px-6 text-center">
-                <p class="motto-font text-lg text-teal-400 mb-2">"Life Itself is a Laboratory"</p>
-                <p>&copy; <span id="currentYear"></span> Labdr.net. All rights reserved.</p>
-                <p class="text-sm mt-2">A journey into the depths of biochemistry.</p>
+            <!-- About Section -->
+            <section id="about" class="py-20 section-bg">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 motto-font">Biyokimya Dünyamız</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Labdr.net olarak, yaşamın temel yapı taşlarını anlama konusunda tutkulu bir ekibiz. 
+                            Moleküler düzeyde gerçekleşen süreçleri araştırarak, sağlık ve yaşam kalitesine katkıda bulunuyoruz.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8 mb-16">
+                        <div class="biochem-card bg-white/80 p-8 rounded-2xl">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Analitik Kimya</h3>
+                            <p class="text-gray-600 text-center">
+                                İleri teknoloji cihazlarla moleküler analiz ve karakterizasyon hizmetleri
+                            </p>
+                        </div>
+
+                        <div class="biochem-card bg-white/80 p-8 rounded-2xl">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Protein Araştırmaları</h3>
+                            <p class="text-gray-600 text-center">
+                                Protein yapısı, fonksiyonu ve etkileşimleri üzerine derinlemesine çalışmalar
+                            </p>
+                        </div>
+
+                        <div class="biochem-card bg-white/80 p-8 rounded-2xl">
+                            <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-red-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Metabolomik</h3>
+                            <p class="text-gray-600 text-center">
+                                Hücresel metabolizma ve metabolit profilleme konusunda uzman analiz
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Laboratory Section -->
+            <section id="laboratory" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 motto-font">Laboratuvar Olanaklarımız</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Modern biyokimya araştırmaları için gerekli tüm teknik donanım ve uzman kadromuzla hizmetinizdeyiz
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                            <div class="text-4xl mb-4">🧬</div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">DNA/RNA Analizi</h3>
+                            <p class="text-gray-600 text-sm">PCR, qRT-PCR, Sekanslama</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                            <div class="text-4xl mb-4">⚗️</div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Protein Purifikasyonu</h3>
+                            <p class="text-gray-600 text-sm">Kromatografi, Elektroforez</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                            <div class="text-4xl mb-4">🔬</div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Mikroskopi</h3>
+                            <p class="text-gray-600 text-sm">Floresan, Konfokal Mikroskopi</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                            <div class="text-4xl mb-4">📊</div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Spektroskopi</h3>
+                            <p class="text-gray-600 text-sm">UV-Vis, FTIR, NMR</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 bg-white rounded-2xl p-8 shadow-xl">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="text-3xl font-bold text-gray-800 mb-6">İleri Analiz Teknikleri</h3>
+                                <ul class="space-y-4">
+                                    <li class="flex items-center">
+                                        <div class="w-2 h-2 bg-cyan-500 rounded-full mr-4"></div>
+                                        <span class="text-gray-700">Kütle Spektrometresi (LC-MS/MS)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-2 h-2 bg-cyan-500 rounded-full mr-4"></div>
+                                        <span class="text-gray-700">Yüksek Performanslı Sıvı Kromatografisi (HPLC)</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-2 h-2 bg-cyan-500 rounded-full mr-4"></div>
+                                        <span class="text-gray-700">İyon Kromatografisi</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <div class="w-2 h-2 bg-cyan-500 rounded-full mr-4"></div>
+                                        <span class="text-gray-700">Kapiler Elektroforez</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-gradient-to-br from-cyan-100 to-blue-100 p-8 rounded-xl">
+                                <div class="text-center">
+                                    <div class="w-24 h-24 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/>
+                                            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"/>
+                                        </svg>
+                                    </div>
+                                    <p class="text-2xl font-bold text-gray-800 mb-2">500+</p>
+                                    <p class="text-gray-600">Tamamlanan Analiz</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research Section -->
+            <section id="research" class="py-20 section-bg">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 motto-font">Araştırma Alanlarımız</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Biyokimya ve moleküler biyoloji alanında yürüttüğümüz araştırma projeleri
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mb-6">
+                                <span class="text-2xl">🧪</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Enzim Kinetikleri</h3>
+                            <p class="text-gray-600 mb-6">
+                                Enzim aktivitesi ve inhibisyon mekanizmalarının detaylı analizi
+                            </p>
+                            <div class="text-sm text-gray-500">
+                                <div class="flex items-center mb-2">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                    Michaelis-Menten kinetikleri
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                    İlaç-enzim etkileşimleri
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mb-6">
+                                <span class="text-2xl">🔬</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Biyomarker Keşfi</h3>
+                            <p class="text-gray-600 mb-6">
+                                Hastalık teşhisi için yeni biyomarkerların belirlenmesi
+                            </p>
+                            <div class="text-sm text-gray-500">
+                                <div class="flex items-center mb-2">
+                                    <span class="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                                    Proteomik analiz
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                                    Metabolomik profillemesi
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                            <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center mb-6">
+                                <span class="text-2xl">🧬</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Moleküler Tanımlama</h3>
+                            <p class="text-gray-600 mb-6">
+                                Yeni biyomoleküllerin yapısal karakterizasyonu
+                            </p>
+                            <div class="text-sm text-gray-500">
+                                <div class="flex items-center mb-2">
+                                    <span class="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+                                    NMR spektroskopi
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+                                    X-ışını kristalografi
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services" class="py-20 bg-gradient-to-br from-slate-900 to-blue-900 text-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6 motto-font">Hizmetlerimiz</h2>
+                        <p class="text-xl text-blue-200 max-w-3xl mx-auto">
+                            Akademik ve endüstriyel ortaklarımız için sunduğumuz profesyonel biyokimya hizmetleri
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="glass-morphism p-8 rounded-xl">
+                            <div class="text-4xl mb-4">⚡</div>
+                            <h3 class="text-xl font-bold mb-4">Hızlı Analiz</h3>
+                            <p class="text-blue-200 mb-4">24-48 saat içinde sonuç</p>
+                            <p class="text-blue-300 text-sm">Acil durumlar için ekspres analiz hizmeti</p>
+                        </div>
+
+                        <div class="glass-morphism p-8 rounded-xl">
+                            <div class="text-4xl mb-4">🎯</div>
+                            <h3 class="text-xl font-bold mb-4">Özel Metot Geliştirme</h3>
+                            <p class="text-blue-200 mb-4">Müşteri özel çözümler</p>
+                            <p class="text-blue-300 text-sm">İhtiyacınıza özel analitik metodlar</p>
+                        </div>
+
+                        <div class="glass-morphism p-8 rounded-xl">
+                            <div class="text-4xl mb-4">📋</div>
+                            <h3 class="text-xl font-bold mb-4">Validasyon Hizmetleri</h3>
+                            <p class="text-blue-200 mb-4">GLP standartlarında</p>
+                            <p class="text-blue-300 text-sm">Uluslararası kalite standartları</p>
+                        </div>
+
+                        <div class="glass-morphism p-8 rounded-xl">
+                            <div class="text-4xl mb-4">🔬</div>
+                            <h3 class="text-xl font-bold mb-4">Kontrat Araştırma</h3>
+                            <p class="text-blue-200 mb-4">Proje bazında çalışma</p>
+                            <p class="text-blue-300 text-sm">Uzun vadeli araştırma ortaklıkları</p>
+                        </div>
+
+                        <div class="glass-morphism p-8 rounded-xl">
+                            <div class="text-4xl mb-4">📊</div>
+                            <h3 class="text-xl font-bold mb-4">Veri Analizi</h3>
+                            <p class="text-blue-200 mb-4">İstatistiksel değerlendirme</p>
+                            <p class="text-blue-300 text-sm">Bioinformatik ve veri madenciliği</p>
+                        </div>
+
+                        <div class="glass-morphism p-8 rounded-xl">
+                            <div class="text-4xl mb-4">🎓</div>
+                            <h3 class="text-xl font-bold mb-4">Eğitim & Danışmanlık</h3>
+                            <p class="text-blue-200 mb-4">Uzman kadro eğitimi</p>
+                            <p class="text-blue-300 text-sm">Teknik danışmanlık hizmetleri</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Section -->
+            <section id="blog" class="py-20 section-bg">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 motto-font">Blog & Makaleler</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Biyokimya dünyasından güncel gelişmeler ve uzman görüşleri
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                            <div class="h-48 bg-gradient-to-br from-cyan-400 to-blue-500"></div>
+                            <div class="p-6">
+                                <div class="text-sm text-gray-500 mb-2">25 Mayıs 2025</div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">CRISPR-Cas9 Teknolojisinde Yeni Gelişmeler</h3>
+                                <p class="text-gray-600 mb-4">Gen düzenleme teknolojilerindeki son ilerlemeler ve tıbbi uygulamaları...</p>
+                                <a href="#" class="text-cyan-600 hover:text-cyan-700 font-semibold">Devamını Oku →</a>
+                            </div>
+                        </article>
+
+                        <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                            <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-500"></div>
+                            <div class="p-6">
+                                <div class="text-sm text-gray-500 mb-2">22 Mayıs 2025</div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">Protein Katlanması ve Alzheimer</h3>
+                                <p class="text-gray-600 mb-4">Protein misfolding mekanizmaları ve nörodejeneratif hastalıklarla ilişkisi...</p>
+                                <a href="#" class="text-cyan-600 hover:text-cyan-700 font-semibold">Devamını Oku →</a>
+                            </div>
+                        </article>
+
+                        <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                            <div class="h-48 bg-gradient-to-br from-green-400 to-teal-500"></div>
+                            <div class="p-6">
+                                <div class="text-sm text-gray-500 mb-2">20 Mayıs 2025</div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">Metabolomik: Geleceğin Tıbbı</h3>
+                                <p class="text-gray-600 mb-4">Metabolit profillemesi ile kişiselleştirilmiş tıp uygulamaları...</p>
+                                <a href="#" class="text-cyan-600 hover:text-cyan-700 font-semibold">Devamını Oku →</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 dna-helix rounded-full mr-3"></div>
+                            <h3 class="text-2xl font-bold motto-font">Labdr.net</h3>
+                        </div>
+                        <p class="text-gray-400 mb-4">Biyokimya alanında öncü araştırmalar ve analitik çözümler</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-cyan-600 rounded-full flex items-center justify-center hover:bg-cyan-700 transition-colors">
+                                <span class="text-sm">📧</span>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-cyan-600 rounded-full flex items-center justify-center hover:bg-cyan-700 transition-colors">
+                                <span class="text-sm">🔗</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Hızlı Linkler</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors">Ana Sayfa</a></li>
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors">Hakkımızda</a></li>
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors">Hizmetler</a></li>
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors">Blog</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Hizmetler</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors">Protein Analizi</a></li>
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors">DNA Sekanslama</a></li>
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors">Metabolomik</a></li>
+                            <li><a href="#" class="hover:text-cyan-400 transition-colors">Konsültasyon</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">İletişim</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>📧 info@labdr.net</li>
+                            <li>📞 +90 (212) 555-0123</li>
+                            <li>📍 İstanbul, Türkiye</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-8 text-center">
+                    <p class="motto-font text-xl text-cyan-400 mb-4 pulse-animation">
+                        "Hayatın Kendisi Bir Laboratuvar"
+                    </p>
+                    <p class="text-gray-400">
+                        &copy; 2025 Labdr.net. Tüm hakları saklıdır. | Biyokimyanın geleceğini şekillendiriyoruz.
+                    </p>
+                </div>
             </div>
         </footer>
-
-        <div id="genericModal" class="modal">
-            <div class="modal-content">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 id="modalTitle" class="text-xl md:text-2xl font-semibold">Modal Title</h3>
-                    <button id="modalCloseButton" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-                </div>
-                <div id="modalMessage" class="mb-6 text-sm md:text-base leading-relaxed">This is a modal message.</div>
-                <div id="modalLoader" class="hidden my-4">
-                    <div class="loader"></div>
-                    <p class="text-center text-sm text-gray-600 mt-2">✨ Fetching information...</p>
-                </div>
-                <button id="modalActionButton" class="btn btn-secondary w-full mt-2">Close</button>
-            </div>
-        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('[data-page]');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            
+            // Handle navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('nav-link-active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('nav-link-active');
+                    
+                    // Smooth scroll to section
+                    const targetId = this.getAttribute('data-page');
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Mobile menu toggle (basic implementation)
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    // Toggle mobile menu functionality can be added here
+                    console.log('Mobile menu clicked');
+                });
+            }
+            
+            // Update year in footer
+            const yearElement = document.querySelector('footer [data-year]');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+            
+            // Intersection Observer for nav highlighting
+            const sections = document.querySelectorAll('section[id]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetLink = document.querySelector(`[data-page="${entry.target.id}"]`);
+                        if (targetLink) {
+                            navLinks.forEach(l => l.classList.remove('nav-link-active'));
+                            targetLink.classList.add('nav-link-active');
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.3,
+                rootMargin: '-100px 0px -100px 0px'
+            });
+            
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
